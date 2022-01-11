@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+    <title>To Do List</title>
 </head>
 <body>
-    <h1>Hello webpack!</h1>
+    <main>
+        <div class="list_headline">
+            <h3>Today's To Do</h3>
+            <img src="" alt="refresh icon">
+        </div>
+        <hr>
+        <form id="list_input">
+            <input type="text" class="add_to_list" placeholder="Add to your list...">
+            <hr>
+        </form>
+        <ul class="list">
+            <li><input type="checkbox" name="task" class="list_task">task</li>
+            <li><hr></li>
+            <li><input type="checkbox" name="task" class="list_task">task</li>
+            <li><hr></li>
+            <li><input type="checkbox" name="task" class="list_task">task</li>
+            <li><hr></li>
+            <li><input type="checkbox" name="task" class="list_task">task</li>
+            <li><hr></li>
+        </ul>
+        <button>Clear all completed</button>
+    </main>
 </body>
 </html>
