@@ -1,12 +1,11 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# To Do List
 
-> One paragraph statement about the project.
+> "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.
 
-![screenshot](./app_screenshot.png)
+![Screenshot 2022-01-12 084255](https://user-images.githubusercontent.com/92228303/149084748-b64d723c-2910-407b-a920-cc36dc9eab0b.png)
 
-Additional description about the project and its features.
 
 ## Built With
 
@@ -16,7 +15,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://timmychan99.github.io/To_Do_list/dist/)
 
 
 ## Getting Started
@@ -24,7 +23,11 @@ Additional description about the project and its features.
 ### Setup
 To get a local copy up and running follow these simple example steps.
 
-`git clone https://github.com/TimmyChan99/`
+- Run `git clone https://github.com/TimmyChan99/To_Do_list.git`
+- Go to the folder `cd To_Do_list`
+- Install packages run `npm install`
+- To run application using webpack-dev-server run `npm start`
+
 
 
 ## Authors
@@ -35,11 +38,6 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@elemenoun](https://twitter.com/elemenoun)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/fatima-ezzahra-elemenoun-020841225/)
 
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 ## 🤝 Contributing
 
