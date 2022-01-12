@@ -9,13 +9,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: './src/index.html'
+      template: './src/index.html',
     }),
   ],
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: 'images/[hash][ext][query]'
+    assetModuleFilename: 'images/[hash][ext][query]',
   },
   module: {
     rules: [
@@ -29,8 +29,8 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: ["html-loader"]
-      }
+        use: ['html-loader'],
+      },
     ],
   },
 };
