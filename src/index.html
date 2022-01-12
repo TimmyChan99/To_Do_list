@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+    <title>To Do List</title>
 </head>
 <body>
-    <h1>Hello webpack!</h1>
+    <main class="main_list">
+        <div class="list_headline d-flex-row">
+            <h3>Today's To Do</h3>
+            <img src="./images/refresh.png" alt="refresh icon">
+        </div>
+        <hr>
+        <form id="list_input" class="d-flex-row form_input">
+            <input type="text" class="add_to_list d-flex-row" placeholder="Add to your list...">
+            <img src="./images/add.png" alt="add icon">
+        </form>
+        <hr>
+        <ul class="list">
+            
+        </ul>
+        <button>Clear all completed</button>
+    </main>
 </body>
 </html>
