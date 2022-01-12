@@ -6,26 +6,42 @@
     <title>To Do List</title>
 </head>
 <body>
-    <main>
-        <div class="list_headline">
+    <main class="main_list">
+        <div class="list_headline d-flex-row">
             <h3>Today's To Do</h3>
             <img src="./images/refresh.png" alt="refresh icon">
         </div>
         <hr>
-        <form id="list_input">
-            <input type="text" class="add_to_list" placeholder="Add to your list...">
+        <form id="list_input" class="d-flex-row form_input">
+            <input type="text" class="add_to_list d-flex-row" placeholder="Add to your list...">
             <img src="./images/add.png" alt="add icon">
         </form>
         <hr>
         <ul class="list">
-            <li><input type="checkbox" name="task" class="list_task">task <img src="./images/more.png" alt="more icon"></li>
-            <li><hr></li>
-            <li><input type="checkbox" name="task" class="list_task">task <img src="./images/more.png" alt="more icon"></li>
-            <li><hr></li>
-            <li><input type="checkbox" name="task" class="list_task">task <img src="./images/more.png" alt="more icon"></li>
-            <li><hr></li>
-            <li><input type="checkbox" name="task" class="list_task">task <img src="./images/more.png" alt="more icon"></li>
-            <li><hr></li>
+            <li class="d-flex-row">
+             <div class="list_task d-flex-row">
+                <input type="checkbox" name="task" class="checkbox">
+                <span>task</span>
+             </div>
+             <img src="./images/more.png" alt="more icon">
+            </li>
+            <li class="break_line_list"><hr></li>
+            <li class="d-flex-row">
+                <div class="list_task d-flex-row">
+                   <input type="checkbox" name="task" class="checkbox">
+                   <span>task</span>
+                </div>
+                <img src="./images/more.png" alt="more icon">
+            </li>
+            <li class="break_line_list"><hr></li>
+            <li class="d-flex-row">
+                <div class="list_task d-flex-row">
+                   <input type="checkbox" name="task" class="checkbox">
+                   <span>task</span>
+                </div>
+                <img src="./images/more.png" alt="more icon">
+            </li>
+            <li class="break_line_list"><hr></li>
         </ul>
         <button>Clear all completed</button>
     </main>
