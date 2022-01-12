@@ -27,8 +27,6 @@ To get a local copy up and running follow these simple example steps.
 - Go to the folder `cd To_Do_list`
 - Install packages: run `npm install`
 - To run application using webpack-dev-server: run `npm start`
-- Install packages run `npm install`
-- To run application using webpack-dev-server run `npm start`
 
 
 ## Authors
