@@ -3,8 +3,13 @@ import more from './images/bin.png';
 import add from './modules/add.js';
 import removeTask from './modules/remove.js';
 import { UpdateTask, saveUpdatedTask } from './modules/edit.js';
+import UpdateStorage from './modules/localStorage.js';
 
 const list = [];
+const input = document.querySelector('#input');
+const addBtn = document.querySelector('.add_btn');
+const form = document.querySelector('#list_input');
+const listTasks = document.querySelector('.list');
 
 class Task {
   constructor(value) {
@@ -14,26 +19,13 @@ class Task {
   }
 }
 
-// Add to array and Store it in localestorage
+// display function
 
-const form = document.querySelector('#list_input');
-const input = document.querySelector('#input');
-
-// Display //
-
-const addBtn = document.querySelector('.add_btn');
-const listTask = document.querySelector('.list');
-
-function SaveAndDisplay() {
-  const newTask = new Task(input.value);
-  add(list, newTask);
-
-  localStorage.setItem('ToDoList', JSON.stringify(list));
-
+const displayTasks = (newTask) => {
   // add <li>
   const li = document.createElement('li');
   li.classList.add('li', 'd-flex-row');
-  listTask.appendChild(li);
+  listTasks.appendChild(li);
 
   // add <div>
   const div = document.createElement('div');
@@ -54,57 +46,57 @@ function SaveAndDisplay() {
   // add <img>
   const moreBtn = document.createElement('img');
   moreBtn.classList.add('more_btn');
-  moreBtn.id = newTask.index;
   moreBtn.src = more;
   moreBtn.alt = 'more icon';
+  moreBtn.id = newTask.index;
   li.appendChild(moreBtn);
 
-  // Display //
+  UpdateStorage(list);
+};
 
+// Add function
+const addTask = () => {
+  const newTask = new Task(input.value);
+  add(list, newTask);
+  displayTasks(newTask);
   input.value = '';
+};
 
-  // Edit Task
-  span.addEventListener('dblclick', (e) => {
-    UpdateTask(e);
-    const taskInput = document.querySelector('.edit');
-    taskInput.addEventListener('keypress', (e) => {
-      if (e.keyCode === 13) {
-        newTask.description = taskInput.value;
-        localStorage.setItem('ToDoList', JSON.stringify(list));
-        saveUpdatedTask(taskInput.value, div, taskInput);
-      }
-    });
-  });
-
-  // remove Task
-
-  moreBtn.addEventListener('click', (e) => {
-    const idNumer = (parseInt(e.target.id, 10) - 1);
-    e.target.parentNode.remove();
-    removeTask(list, idNumer);
-
-    // Update Index
-
-    list.forEach((task, i) => {
-      task.index = i + 1;
-    });
-
-    // Update id
-
-    const moreBtns = document.querySelectorAll('.more_btn');
-    moreBtns.forEach((btn) => {
-      if (btn.id > e.target.id) {
-        btn.id -= 1;
-      }
-    });
-
-    localStorage.setItem('ToDoList', JSON.stringify(list));
-  });
-}
-
-addBtn.addEventListener('click', SaveAndDisplay);
+addBtn.addEventListener('click', addTask);
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  SaveAndDisplay();
+  addTask();
   input.blur();
 });
+
+// remove function
+const deleteTask = (idNumer, e) => {
+  removeTask(list, idNumer - 1);
+
+  // Update Index
+  list.forEach((task, i) => {
+    task.index = i + 1;
+  });
+
+  // Update id
+  const binBtns = document.querySelectorAll('.more_btn');
+  binBtns.forEach((btn) => {
+    if (btn.id > e.target.id) {
+      btn.id -= 1;
+    }
+  });
+  UpdateStorage(list);
+};
+
+listTasks.addEventListener('click', (e) => {
+  const idNumer = e.target.id;
+  e.target.parentNode.remove();
+  deleteTask(idNumer, e);
+});
+
+// editing Tasks
+
+const editTask = (e) => {
+  
+  displayTasks(list);
+};
