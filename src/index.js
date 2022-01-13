@@ -1,5 +1,5 @@
 import './style.css';
-import more from './images/more.png';
+import more from './images/bin.png';
 import add from './modules/add.js';
 import removeTask from './modules/remove.js';
 import { UpdateTask, saveUpdatedTask } from './modules/edit.js';
