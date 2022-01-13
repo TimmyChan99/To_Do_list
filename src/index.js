@@ -5,7 +5,7 @@ import removeTask from './modules/remove.js';
 import { UpdateTask, saveUpdatedTask } from './modules/edit.js';
 import UpdateStorage from './modules/localStorage.js';
 
-const list = [];
+const list = JSON.parse(localStorage.getItem('ToDoList')) || [];
 const input = document.querySelector('#input');
 const addBtn = document.querySelector('.add_btn');
 const form = document.querySelector('#list_input');
@@ -109,12 +109,11 @@ listTasks.addEventListener('dblclick', (e) => {
     list.forEach((task) => {
       if (task.description === e.target.innerText) {
         const taskInput = document.querySelector('.edit');
-        const div = document.querySelector('.list_task');
         taskInput.addEventListener('keypress', (e) => {
           if (e.keyCode === 13) {
             task.description = taskInput.value;
             UpdateStorage(list);
-            saveUpdatedTask(taskInput.value, div, taskInput);
+            saveUpdatedTask(taskInput.value, e.target.parentNode, taskInput);
           }
         });
       }
