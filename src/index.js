@@ -41,6 +41,7 @@ const displayTasks = (newTask) => {
   // add <span>
   const span = document.createElement('span');
   span.innerText = input.value;
+  span.classList.add('span');
   div.appendChild(span);
 
   // add <img>
@@ -89,14 +90,34 @@ const deleteTask = (idNumer, e) => {
 };
 
 listTasks.addEventListener('click', (e) => {
-  const idNumer = e.target.id;
-  e.target.parentNode.remove();
-  deleteTask(idNumer, e);
+  if (e.target.classList.contains('more_btn')) {
+    const idNumer = e.target.id;
+    e.target.parentNode.remove();
+    deleteTask(idNumer, e);
+  }
 });
 
 // editing Tasks
 
 const editTask = (e) => {
-  
-  displayTasks(list);
+  UpdateTask(e);
 };
+
+listTasks.addEventListener('dblclick', (e) => {
+  if (e.target.classList.contains('span')) {
+    editTask(e);
+    list.forEach((task) => {
+      if (task.description === e.target.innerText) {
+        const taskInput = document.querySelector('.edit');
+        const div = document.querySelector('.list_task');
+        taskInput.addEventListener('keypress', (e) => {
+          if (e.keyCode === 13) {
+            task.description = taskInput.value;
+            UpdateStorage(list);
+            saveUpdatedTask(taskInput.value, div, taskInput);
+          }
+        });
+      }
+    });
+  }
+});
