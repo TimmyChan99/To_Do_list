@@ -2,6 +2,7 @@ import './style.css';
 import more from './images/more.png';
 import add from './modules/add.js';
 import removeTask from './modules/remove.js';
+import { UpdateTask, saveUpdatedTask } from './modules/edit.js';
 
 const list = [];
 
@@ -27,7 +28,7 @@ function SaveAndDisplay() {
   const newTask = new Task(input.value);
   add(list, newTask);
 
-  // localStorage.setItem('ToDoList', JSON.stringify(list));
+  localStorage.setItem('ToDoList', JSON.stringify(list));
 
   // add <li>
   const li = document.createElement('li');
@@ -62,7 +63,20 @@ function SaveAndDisplay() {
 
   input.value = '';
 
-  // remove
+  // Edit Task
+  span.addEventListener('dblclick', (e) => {
+    UpdateTask(e);
+    const taskInput = document.querySelector('.edit');
+    taskInput.addEventListener('keypress', (e) => {
+      if (e.keyCode === 13) {
+        newTask.description = taskInput.value;
+        localStorage.setItem('ToDoList', JSON.stringify(list));
+        saveUpdatedTask(taskInput.value, div, taskInput);
+      }
+    });
+  });
+
+  // remove Task
 
   moreBtn.addEventListener('click', (e) => {
     const idNumer = (parseInt(e.target.id, 10) - 1);
