@@ -86,3 +86,9 @@ button {
 .edit {
   width: 80%;
 }
+
+.done {
+  text-decoration: line-through;
+  text-decoration-color: black;
+  color: gray;
+}

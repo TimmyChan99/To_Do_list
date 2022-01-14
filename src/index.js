@@ -4,6 +4,7 @@ import add from './modules/add.js';
 import removeTask from './modules/remove.js';
 import { UpdateTask, saveUpdatedTask } from './modules/edit.js';
 import UpdateStorage from './modules/localStorage.js';
+import UpdateStatus from './modules/status.js';
 
 const list = JSON.parse(localStorage.getItem('ToDoList')) || [];
 const input = document.querySelector('#input');
@@ -37,7 +38,8 @@ const displayTasks = (tasks) => {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('checkbox');
-    checkbox.checked = task.completed;
+    checkbox.id = `box-${task.index}`;
+
     div.appendChild(checkbox);
 
     // add <span>
@@ -127,3 +129,10 @@ listTasks.addEventListener('dblclick', (e) => {
 window.onload = () => {
   displayTasks(list);
 };
+
+listTasks.addEventListener('change', (e) => {
+  if (e.target.classList.contains('checkbox')) {
+    UpdateStatus(e, list);
+    UpdateStorage(list);
+  }
+});
