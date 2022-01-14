@@ -39,13 +39,15 @@ const displayTasks = (tasks) => {
     checkbox.type = 'checkbox';
     checkbox.classList.add('checkbox');
     checkbox.id = `box-${task.index}`;
-
+    checkbox.checked = task.completed;
     div.appendChild(checkbox);
 
     // add <span>
     const span = document.createElement('span');
     span.innerText = task.description;
-    span.classList.add('span');
+    if (task.completed === true) {
+      span.classList.add('span', 'done');
+    } else { span.classList.add('span'); }
     div.appendChild(span);
 
     // add <img>
@@ -129,6 +131,8 @@ listTasks.addEventListener('dblclick', (e) => {
 window.onload = () => {
   displayTasks(list);
 };
+
+// Update Status
 
 listTasks.addEventListener('change', (e) => {
   if (e.target.classList.contains('checkbox')) {
