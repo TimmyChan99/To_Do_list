@@ -21,45 +21,47 @@ class Task {
 
 // display function
 
-const displayTasks = (newTask) => {
-  // add <li>
-  const li = document.createElement('li');
-  li.classList.add('li', 'd-flex-row');
-  listTasks.appendChild(li);
+const displayTasks = (tasks) => {
+  listTasks.innerHTML = '';
+  tasks.forEach((task) => {
+    const li = document.createElement('li');
+    li.classList.add('li', 'd-flex-row');
+    listTasks.appendChild(li);
 
-  // add <div>
-  const div = document.createElement('div');
-  div.classList.add('list_task', 'd-flex-row');
-  li.appendChild(div);
+    // add <div>
+    const div = document.createElement('div');
+    div.classList.add('list_task', 'd-flex-row');
+    li.appendChild(div);
 
-  // add <input>
-  const inputTag = document.createElement('input');
-  inputTag.type = 'checkbox';
-  inputTag.classList.add('checkbox');
-  div.appendChild(inputTag);
+    // add <input>
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.classList.add('checkbox');
+    checkbox.checked = task.completed;
+    div.appendChild(checkbox);
 
-  // add <span>
-  const span = document.createElement('span');
-  span.innerText = input.value;
-  span.classList.add('span');
-  div.appendChild(span);
+    // add <span>
+    const span = document.createElement('span');
+    span.innerText = task.description;
+    span.classList.add('span');
+    div.appendChild(span);
 
-  // add <img>
-  const moreBtn = document.createElement('img');
-  moreBtn.classList.add('more_btn');
-  moreBtn.src = more;
-  moreBtn.alt = 'more icon';
-  moreBtn.id = newTask.index;
-  li.appendChild(moreBtn);
-
-  UpdateStorage(list);
+    // add <img>
+    const moreBtn = document.createElement('img');
+    moreBtn.classList.add('more_btn');
+    moreBtn.src = more;
+    moreBtn.alt = 'more icon';
+    moreBtn.id = task.index;
+    li.appendChild(moreBtn);
+  });
 };
 
 // Add function
 const addTask = () => {
   const newTask = new Task(input.value);
   add(list, newTask);
-  displayTasks(newTask);
+  UpdateStorage(list);
+  displayTasks(list);
   input.value = '';
 };
 
@@ -114,9 +116,14 @@ listTasks.addEventListener('dblclick', (e) => {
             task.description = taskInput.value;
             UpdateStorage(list);
             saveUpdatedTask(taskInput.value, e.target.parentNode, taskInput);
+            displayTasks(list);
           }
         });
       }
     });
   }
 });
+
+window.onload = () => {
+  displayTasks(list);
+};
