@@ -6,7 +6,7 @@ import { UpdateTask, saveUpdatedTask } from './modules/edit.js';
 import UpdateStorage from './modules/localStorage.js';
 import UpdateStatus from './modules/status.js';
 
-const list = JSON.parse(localStorage.getItem('ToDoList')) || [];
+let list = JSON.parse(localStorage.getItem('ToDoList')) || [];
 const input = document.querySelector('#input');
 const addBtn = document.querySelector('.add_btn');
 const form = document.querySelector('#list_input');
@@ -128,10 +128,6 @@ listTasks.addEventListener('dblclick', (e) => {
   }
 });
 
-window.onload = () => {
-  displayTasks(list);
-};
-
 // Update Status
 
 listTasks.addEventListener('change', (e) => {
@@ -140,3 +136,20 @@ listTasks.addEventListener('change', (e) => {
     UpdateStorage(list);
   }
 });
+
+// Clear all completed Tasks
+const clearBtn = document.querySelector('#clearBtn');
+
+clearBtn.addEventListener('click', () => {
+  const UncompeledTasks = list.filter((task) => task.completed === false);
+  UncompeledTasks.forEach((task, i) => { (task.index = i + 1); });
+  list = UncompeledTasks;
+  displayTasks(list);
+  UpdateStorage(list);
+});
+
+// Load to do list
+
+window.onload = () => {
+  displayTasks(list);
+};
