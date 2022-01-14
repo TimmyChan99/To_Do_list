@@ -4,8 +4,9 @@ import add from './modules/add.js';
 import removeTask from './modules/remove.js';
 import { UpdateTask, saveUpdatedTask } from './modules/edit.js';
 import UpdateStorage from './modules/localStorage.js';
+import UpdateStatus from './modules/status.js';
 
-const list = JSON.parse(localStorage.getItem('ToDoList')) || [];
+let list = JSON.parse(localStorage.getItem('ToDoList')) || [];
 const input = document.querySelector('#input');
 const addBtn = document.querySelector('.add_btn');
 const form = document.querySelector('#list_input');
@@ -37,13 +38,16 @@ const displayTasks = (tasks) => {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('checkbox');
+    checkbox.id = `box-${task.index}`;
     checkbox.checked = task.completed;
     div.appendChild(checkbox);
 
     // add <span>
     const span = document.createElement('span');
     span.innerText = task.description;
-    span.classList.add('span');
+    if (task.completed === true) {
+      span.classList.add('span', 'done');
+    } else { span.classList.add('span'); }
     div.appendChild(span);
 
     // add <img>
@@ -123,6 +127,28 @@ listTasks.addEventListener('dblclick', (e) => {
     });
   }
 });
+
+// Update Status
+
+listTasks.addEventListener('change', (e) => {
+  if (e.target.classList.contains('checkbox')) {
+    UpdateStatus(e, list);
+    UpdateStorage(list);
+  }
+});
+
+// Clear all completed Tasks
+const clearBtn = document.querySelector('#clearBtn');
+
+clearBtn.addEventListener('click', () => {
+  const UncompeledTasks = list.filter((task) => task.completed === false);
+  UncompeledTasks.forEach((task, i) => { (task.index = i + 1); });
+  list = UncompeledTasks;
+  displayTasks(list);
+  UpdateStorage(list);
+});
+
+// Load to do list
 
 window.onload = () => {
   displayTasks(list);
