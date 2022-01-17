@@ -15,7 +15,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://timmychan99.github.io/To_Do_list/dist/)
+[Live Demo Link](https://timmychan99.github.io/To_Do_list/)
 
 
 ## Getting Started
