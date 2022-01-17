@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/TimmyChan99/Webpack-set-up/issues"
   },
-  "homepage": "https://timmychan99.github.io/To_Do_list/",
+  "homepage": "https://timmychan99.github.io/To_Do_list",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.5.1",
