@@ -1,7 +1,8 @@
 import './style.css';
 import more from './images/bin.png';
-import add from './modules/add.js';
-import removeTask from './modules/remove.js';
+// import add from './modules/add.js';
+// import removeTask from './modules/remove.js';
+import { addTask, removeTask } from './addRemove.js';
 import { UpdateTask, saveUpdatedTask } from './modules/edit.js';
 import UpdateStorage from './modules/localStorage.js';
 import UpdateStatus from './modules/status.js';
@@ -61,18 +62,18 @@ const displayTasks = (tasks) => {
 };
 
 // Add function
-const addTask = () => {
+const add = () => {
   const newTask = new Task(input.value);
-  add(list, newTask);
+  addTask(list, newTask);
   UpdateStorage(list);
   displayTasks(list);
   input.value = '';
 };
 
-addBtn.addEventListener('click', addTask);
+addBtn.addEventListener('click', add);
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  addTask();
+  add();
   input.blur();
 });
 

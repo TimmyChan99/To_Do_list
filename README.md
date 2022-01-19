@@ -37,6 +37,12 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@elemenoun](https://twitter.com/elemenoun)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/fatima-ezzahra-elemenoun-020841225/)
 
+👤 **Vana Seraydarian**
+
+- GitHub: [@VSeray](https://github.com/VSeray)
+- Twitter: [twitter](https://twitter.com/home)
+- LinkedIn: [Linkdin](https://www.linkedin.com/in/vana-seraydarian-936687191/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BNyso4dw6Tz6UBL%2Fqkjvtvw%3D%3D)
+
 
 ## 🤝 Contributing
 
