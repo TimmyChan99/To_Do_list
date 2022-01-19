@@ -13,3 +13,11 @@ describe('testing add', () => {
     expect(list.length).toBe(2);
   });
 });
+
+describe('testing delete', () => {
+  const deleteIndex = 1;
+  const list = [{ index:  1}];
+  it('test if first element is deleted', () => {
+    expect(removeTask(list, deleteIndex).length).toBe(0);
+  });
+});

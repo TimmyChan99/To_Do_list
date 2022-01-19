@@ -3,8 +3,7 @@ function addTask(arr, obj) {
 }
 
 function removeTask(arr, index) {
-  arr.splice(index, 1);
-  return arr;
+  return arr.splice(index, 1);
 }
 
 export { addTask, removeTask };
