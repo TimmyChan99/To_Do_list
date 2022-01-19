@@ -16,8 +16,14 @@ describe('testing add', () => {
 
 describe('testing delete', () => {
   const deleteIndex = 1;
-  const list = [{ index:  1}];
+  const list = [{ index: 1 }];
+  const list2 = [{ index: 1 }, { index: 2 }];
+
   it('test if first element is deleted', () => {
     expect(removeTask(list, deleteIndex).length).toBe(0);
+  });
+
+  it('test if first element is deleted', () => {
+    expect(removeTask(list2, deleteIndex).length).toBe(1);
   });
 });

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1642601656213" clover="3.2.0">
-  <project timestamp="1642601656214" name="All files">
+<coverage generated="1642602379957" clover="3.2.0">
+  <project timestamp="1642602379958" name="All files">
     <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2" elements="4" coveredelements="4" complexity="0" loc="2" ncloc="2" packages="1" files="1" classes="1"/>
-    <file name="addRemove.js" path="C:\Users\VS 47\Documents\GitHub\To_Do_list\src\addRemove.js">
+    <file name="addRemove.js" path="C:\Users\EL MANOUM\Desktop\repos\Microverse projects\To_Do_list\src\addRemove.js">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <line num="2" count="2" type="stmt"/>
-      <line num="6" count="1" type="stmt"/>
+      <line num="6" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>
