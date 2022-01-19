@@ -1,0 +1,16 @@
+TN:
+SF:src\addRemove.js
+FN:1,addTask
+FN:5,removeTask
+FNF:2
+FNH:1
+FNDA:2,addTask
+FNDA:0,removeTask
+DA:2,2
+DA:6,0
+DA:7,0
+LF:3
+LH:1
+BRF:0
+BRH:0
+end_of_record

@@ -152,5 +152,3 @@ clearBtn.addEventListener('click', () => {
 window.onload = () => {
   displayTasks(list);
 };
-
-export { addTask, Task };
