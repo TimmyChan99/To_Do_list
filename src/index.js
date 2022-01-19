@@ -62,11 +62,10 @@ const displayTasks = (tasks) => {
 
 // Add function
 const addTask = () => {
-  const newTask = new Task(input.value);
+  const newTask = new Task(input);
   add(list, newTask);
   UpdateStorage(list);
   displayTasks(list);
-  input.value = '';
 };
 
 addBtn.addEventListener('click', addTask);

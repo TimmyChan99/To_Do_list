@@ -1,10 +1,15 @@
 import { Task, addTask } from './index.js';
 
-test('Add one new item to the list', () => {
-  document.body.innerHTML = '<div>'
-    + '  <ul id="list"></ul>'
-    + '</div>';
-  addTask();
-  const list = document.querySelectorAll('#list li');
-  expect(list).toHaveLength(1);
+const task = new Task();
+
+describe('testing add', () => {
+  it('adding the first task', () => {
+    addTask({ description: 'task 1' });
+    expect(this.index).toBe(1);
+  });
+
+  it('adding and chacking task description', () => {
+    addTask({ description: 'task 2' });
+    expect(this.index[1].description).toBe('task 2');
+  });
 });
