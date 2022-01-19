@@ -61,7 +61,7 @@ const displayTasks = (tasks) => {
 };
 
 // Add function
-const addTask = () => {
+const addTask = (input) => {
   const newTask = new Task(input);
   add(list, newTask);
   UpdateStorage(list);
