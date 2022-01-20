@@ -6,7 +6,7 @@ import {
 } from './testing.js';
 import UpdateStorage from './modules/localStorage.js';
 
-const list = JSON.parse(localStorage.getItem('ToDoList')) || [];
+let list = JSON.parse(localStorage.getItem('ToDoList')) || [];
 const input = document.querySelector('#input');
 const addBtn = document.querySelector('.add_btn');
 const form = document.querySelector('#list_input');
@@ -92,6 +92,7 @@ const deleteTask = (idNumer, e) => {
       btn.id -= 1;
     }
   });
+
   UpdateStorage(list);
 };
 
@@ -100,6 +101,7 @@ listTasks.addEventListener('click', (e) => {
     const idNumer = e.target.id;
     e.target.parentNode.remove();
     deleteTask(idNumer, e);
+    displayTasks(list);
   }
 });
 
@@ -141,9 +143,9 @@ listTasks.addEventListener('change', (e) => {
 const clearBtn = document.querySelector('#clearBtn');
 
 clearBtn.addEventListener('click', () => {
-  clearAll(list);
-  displayTasks(clearAll(list));
-  UpdateStorage(clearAll(list));
+  list = clearAll(list);
+  displayTasks(list);
+  UpdateStorage(list);
 });
 
 // Load to do list
