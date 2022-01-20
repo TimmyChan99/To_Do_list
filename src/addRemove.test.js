@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { addTask, removeTask } from './addRemove.js';
 
 describe('testing add', () => {

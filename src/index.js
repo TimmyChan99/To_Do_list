@@ -1,11 +1,10 @@
 import './style.css';
 import more from './images/bin.png';
-// import add from './modules/add.js';
-// import removeTask from './modules/remove.js';
 import { addTask, removeTask } from './addRemove.js';
-import { UpdateTask, saveUpdatedTask } from './modules/edit.js';
+import {
+  UpdateTask, saveUpdatedTask, clearAll, UpdateStatus,
+} from './testing.js';
 import UpdateStorage from './modules/localStorage.js';
-import UpdateStatus from './modules/status.js';
 
 let list = JSON.parse(localStorage.getItem('ToDoList')) || [];
 const input = document.querySelector('#input');
@@ -93,6 +92,7 @@ const deleteTask = (idNumer, e) => {
       btn.id -= 1;
     }
   });
+
   UpdateStorage(list);
 };
 
@@ -101,6 +101,7 @@ listTasks.addEventListener('click', (e) => {
     const idNumer = e.target.id;
     e.target.parentNode.remove();
     deleteTask(idNumer, e);
+    displayTasks(list);
   }
 });
 
@@ -142,9 +143,7 @@ listTasks.addEventListener('change', (e) => {
 const clearBtn = document.querySelector('#clearBtn');
 
 clearBtn.addEventListener('click', () => {
-  const UncompeledTasks = list.filter((task) => task.completed === false);
-  UncompeledTasks.forEach((task, i) => { (task.index = i + 1); });
-  list = UncompeledTasks;
+  list = clearAll(list);
   displayTasks(list);
   UpdateStorage(list);
 });
