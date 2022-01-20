@@ -3,11 +3,11 @@ import more from './images/bin.png';
 // import add from './modules/add.js';
 // import removeTask from './modules/remove.js';
 import { addTask, removeTask } from './addRemove.js';
-import { UpdateTask, saveUpdatedTask } from './modules/edit.js';
+import { UpdateTask, saveUpdatedTask, clearAll } from './modules/edit.js';
 import UpdateStorage from './modules/localStorage.js';
 import UpdateStatus from './modules/status.js';
 
-let list = JSON.parse(localStorage.getItem('ToDoList')) || [];
+const list = JSON.parse(localStorage.getItem('ToDoList')) || [];
 const input = document.querySelector('#input');
 const addBtn = document.querySelector('.add_btn');
 const form = document.querySelector('#list_input');
@@ -142,11 +142,12 @@ listTasks.addEventListener('change', (e) => {
 const clearBtn = document.querySelector('#clearBtn');
 
 clearBtn.addEventListener('click', () => {
-  const UncompeledTasks = list.filter((task) => task.completed === false);
-  UncompeledTasks.forEach((task, i) => { (task.index = i + 1); });
-  list = UncompeledTasks;
-  displayTasks(list);
-  UpdateStorage(list);
+  // const UncompeledTasks = list.filter((task) => task.completed === false);
+  // UncompeledTasks.forEach((task, i) => { (task.index = i + 1); });
+  // list = UncompeledTasks;
+  clearAll(list);
+  displayTasks(clearAll(list));
+  UpdateStorage(clearAll(list));
 });
 
 // Load to do list
