@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1642673075809" clover="3.2.0">
-  <project timestamp="1642673075809" name="All files">
-    <metrics statements="30" coveredstatements="6" conditionals="10" coveredconditionals="0" methods="8" coveredmethods="5" elements="48" coveredelements="11" complexity="0" loc="30" ncloc="30" packages="1" files="1" classes="1"/>
+<coverage generated="1642682206599" clover="3.2.0">
+  <project timestamp="1642682206599" name="All files">
+    <metrics statements="30" coveredstatements="15" conditionals="10" coveredconditionals="6" methods="8" coveredmethods="6" elements="48" coveredelements="27" complexity="0" loc="30" ncloc="30" packages="1" files="1" classes="1"/>
     <file name="addRemove.js" path="C:\Users\EL MANOUM\Desktop\repos\Microverse projects\To_Do_list\src\addRemove.js">
-      <metrics statements="30" coveredstatements="6" conditionals="10" coveredconditionals="0" methods="8" coveredmethods="5"/>
+      <metrics statements="30" coveredstatements="15" conditionals="10" coveredconditionals="6" methods="8" coveredmethods="6"/>
       <line num="2" count="2" type="stmt"/>
       <line num="6" count="2" type="stmt"/>
       <line num="12" count="0" type="stmt"/>
@@ -19,17 +19,17 @@
       <line num="25" count="0" type="stmt"/>
       <line num="26" count="0" type="stmt"/>
       <line num="27" count="0" type="stmt"/>
-      <line num="32" count="0" type="stmt"/>
-      <line num="33" count="0" type="stmt"/>
-      <line num="34" count="0" type="stmt"/>
-      <line num="35" count="0" type="stmt"/>
-      <line num="36" count="0" type="stmt"/>
-      <line num="37" count="0" type="cond" truecount="0" falsecount="4"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="34" count="1" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="36" count="1" type="stmt"/>
+      <line num="37" count="1" type="cond" truecount="3" falsecount="1"/>
       <line num="38" count="0" type="stmt"/>
       <line num="39" count="0" type="stmt"/>
-      <line num="40" count="0" type="cond" truecount="0" falsecount="4"/>
-      <line num="41" count="0" type="stmt"/>
-      <line num="42" count="0" type="stmt"/>
+      <line num="40" count="1" type="cond" truecount="3" falsecount="1"/>
+      <line num="41" count="1" type="stmt"/>
+      <line num="42" count="1" type="stmt"/>
       <line num="48" count="5" type="stmt"/>
       <line num="49" count="3" type="stmt"/>
       <line num="50" count="3" type="stmt"/>

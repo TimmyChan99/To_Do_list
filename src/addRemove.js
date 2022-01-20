@@ -28,7 +28,7 @@ export function saveUpdatedTask(value, parentNode, taskInput) {
   }
 }
 
-export default function UpdateStatus(e, list) {
+export function UpdateStatus(e, list) {
   const boxId = e.target.id;
   const checkBox = document.querySelector(`#${boxId}`);
   const status = checkBox.checked;

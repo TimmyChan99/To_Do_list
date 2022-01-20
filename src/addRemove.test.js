@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import {
   addTask, removeTask, UpdateTask, saveUpdatedTask, UpdateStatus, clearAll,
 } from './addRemove.js';
@@ -60,5 +64,29 @@ describe('Testing Clear All Completed', () => {
 
   test('index', () => {
     expect(clearAll(list)[0].index).toBe(1);
+  });
+});
+
+describe('test update status', () => {
+  test('update', () => {
+    document.body.innerHTML = '<div>'
+    + '<input type="checkbox" class="checkbox" id="box-1">'
+    + '  <span class="span" id="span" />'
+    + '</div>';
+
+    const list = [
+      {
+        description: 'task1',
+        completed: false,
+        index: 1,
+      }];
+    const box = document.querySelector('.checkbox');
+    const span = document.querySelector('.span');
+    box.addEventListener('change', (e) => {
+      UpdateStatus(e, list);
+    });
+    const event = new Event('change');
+    box.dispatchEvent(event);
+    expect(span.getAttribute('class')).toBe('span done');
   });
 });
