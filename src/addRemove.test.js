@@ -1,6 +1,6 @@
-import { addTask, removeTask } from './addRemove.js';
-import { UpdateTask, saveUpdatedTask, UpdateStatus, clearAll } from './addRemove.js';
-
+import {
+  addTask, removeTask, UpdateTask, saveUpdatedTask, UpdateStatus, clearAll,
+} from './addRemove.js';
 
 describe('testing add', () => {
   const task = { index: 1 };
@@ -30,20 +30,35 @@ describe('testing delete', () => {
   });
 });
 
-describe('testing edit', () => {
-  const task = { index: 1 };
-  const list = [];
-  addTask(list, task);
-  const currentTask = list.task;
-  currentTask.completed = true;
-  UpdateTask(currentTask);
+describe('Testing Clear All Completed', () => {
+  const list = [
+    {
+      description: 'task1',
+      completed: true,
+      index: 1,
+    },
+    {
+      description: 'task2',
+      completed: false,
+      index: 2,
+    },
+  ];
 
-  it('Checking if task completed is true', () => {
-    document.body.innerHTML =
-    '<div>' +
-    '  <span id="username" />' +
-    '  <button id="button" />' +
-    '</div>';
-    expect(list.task.completed).toBeTruthy();
+  test('lenght 1 ', () => {
+    expect(clearAll(list).length).toBe(1);
+  });
+
+  test('lenght 0', () => {
+    const list1 = [
+      {
+        description: 'task1',
+        completed: true,
+        index: 1,
+      }];
+    expect(clearAll(list1).length).toBe(0);
+  });
+
+  test('index', () => {
+    expect(clearAll(list)[0].index).toBe(1);
   });
 });
