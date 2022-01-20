@@ -90,3 +90,36 @@ describe('test update status', () => {
     expect(span.getAttribute('class')).toBe('span done');
   });
 });
+
+describe('test update task', () => {
+  test('edit', () => {
+    document.body.innerHTML = '<div class="div">'
+    + '  <span class="span" id="span" />'
+    + '</div>';
+
+    const span = document.querySelector('.span');
+    span.addEventListener('dblclick', (e) => {
+      UpdateTask(e);
+    });
+    const event = new Event('dblclick');
+    span.dispatchEvent(event);
+    expect(document.querySelector('.edit')).toBeTruthy();
+  });
+});
+
+describe('test save update task', () => {
+  test('save update', () => { 
+    document.body.innerHTML = '<div class="div">'
+    + '  <input class="edit" type="text"  />'
+    + '</div>';
+
+    const div = document.querySelector('.div')
+    const input = document.querySelector('.edit');
+    input.addEventListener('click', () => {
+      saveUpdatedTask('task', div, input);
+    });
+    const event = new Event('click');
+    input.dispatchEvent(event);
+    expect(document.querySelector('.edit')).toBeFalsy();
+  });
+});

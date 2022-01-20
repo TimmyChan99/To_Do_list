@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.54% </span>
+                <span class="strong">93.93% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>18/33</span>
+                <span class='fraction'>31/33</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">70% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/10</span>
+                <span class='fraction'>7/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">93.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/30</span>
+                <span class='fraction'>28/30</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -125,22 +125,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -175,23 +175,23 @@ function removeTask(arr, index) {
 &nbsp;
 export { addTask, removeTask };
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >UpdateTask(</span>e) {
-  const currentTask = <span class="cstat-no" title="statement not covered" >e.target.innerText;</span>
-  const taskInput = <span class="cstat-no" title="statement not covered" >document.createElement('input');</span>
-<span class="cstat-no" title="statement not covered" >  taskInput.type = 'text';</span>
-<span class="cstat-no" title="statement not covered" >  taskInput.value = currentTask;</span>
-<span class="cstat-no" title="statement not covered" >  taskInput.classList.add('edit');</span>
-<span class="cstat-no" title="statement not covered" >  e.target.parentNode.append(taskInput);</span>
-<span class="cstat-no" title="statement not covered" >  e.target.remove();</span>
-<span class="cstat-no" title="statement not covered" >  taskInput.select();</span>
+export function UpdateTask(e) {
+  const currentTask = e.target.innerText;
+  const taskInput = document.createElement('input');
+  taskInput.type = 'text';
+  taskInput.value = currentTask;
+  taskInput.classList.add('edit');
+  e.target.parentNode.append(taskInput);
+  e.target.remove();
+  taskInput.select();
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >saveUpdatedTask(</span>value, parentNode, taskInput) {
-<span class="cstat-no" title="statement not covered" >  if (value !== '') {</span>
-    const span = <span class="cstat-no" title="statement not covered" >document.createElement('span');</span>
-<span class="cstat-no" title="statement not covered" >    span.innerText = value;</span>
-<span class="cstat-no" title="statement not covered" >    parentNode.append(span);</span>
-<span class="cstat-no" title="statement not covered" >    taskInput.remove();</span>
+export function saveUpdatedTask(value, parentNode, taskInput) {
+  if (value !== '') {
+    const span = document.createElement('span');
+    span.innerText = value;
+    parentNode.append(span);
+    taskInput.remove();
   }
 }
 &nbsp;
@@ -223,7 +223,7 @@ export function clearAll(list) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Jan 20 2022 13:36:46 GMT+0100 (GMT+01:00)
+                at Thu Jan 20 2022 15:31:25 GMT+0200 (Eastern European Standard Time)
             </div>
         <script src="prettify.js"></script>
         <script>
