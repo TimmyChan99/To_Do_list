@@ -1,4 +1,6 @@
 import { addTask, removeTask } from './addRemove.js';
+import { UpdateTask, saveUpdatedTask, UpdateStatus, clearAll } from './addRemove.js';
+
 
 describe('testing add', () => {
   const task = { index: 1 };
@@ -25,5 +27,23 @@ describe('testing delete', () => {
 
   it('test if first element is deleted', () => {
     expect(removeTask(list2, deleteIndex).length).toBe(1);
+  });
+});
+
+describe('testing edit', () => {
+  const task = { index: 1 };
+  const list = [];
+  addTask(list, task);
+  const currentTask = list.task;
+  currentTask.completed = true;
+  UpdateTask(currentTask);
+
+  it('Checking if task completed is true', () => {
+    document.body.innerHTML =
+    '<div>' +
+    '  <span id="username" />' +
+    '  <button id="button" />' +
+    '</div>';
+    expect(list.task.completed).toBeTruthy();
   });
 });
