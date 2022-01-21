@@ -12,7 +12,7 @@ describe('testing add', () => {
     expect(list.length).toBe(1);
   });
 
-  it('adding and cheacking task description', () => {
+  it('adding and checking task description', () => {
     addTask(list, task);
     expect(list.length).toBe(2);
   });
